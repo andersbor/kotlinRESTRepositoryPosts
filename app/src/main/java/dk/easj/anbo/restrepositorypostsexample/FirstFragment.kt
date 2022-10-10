@@ -32,7 +32,7 @@ class FirstFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        postsViewModel.postsLiveData.observe(viewLifecycleOwner, { posts ->
+        postsViewModel.postsLiveData.observe(viewLifecycleOwner) { posts ->
             if (posts != null) {
                 binding.textviewFirst.text = posts.toString()
 
@@ -47,11 +47,11 @@ class FirstFragment : Fragment() {
 
                 binding.recyclerview.adapter = adapter
             }
-        })
+        }
 
-        postsViewModel.errorMessage.observe(viewLifecycleOwner, { errorMessage ->
+        postsViewModel.errorMessage.observe(viewLifecycleOwner) { errorMessage ->
             binding.textviewFirst.text = errorMessage
-        })
+        }
 
         binding.buttonFirst.setOnClickListener {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)

@@ -6,7 +6,7 @@ import dk.easj.anbo.restrepositorypostsexample.repository.PostsRepository
 
 class PostsViewModel : ViewModel() {
     private val repository: PostsRepository = PostsRepository()
-    val postsLiveData: LiveData<List<Post>> = repository.postsLiveData
+    val postsLiveData: LiveData<List<Post>?> = repository.postsLiveData
     val errorMessage: LiveData<String> = repository.errorMessageLiveData
 
     fun get(position: Int): Post? {
